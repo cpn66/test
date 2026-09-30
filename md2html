@@ -9,6 +9,10 @@
 #   - Markdown-таблицы
 #   - изображения из *_media/
 #   - <!-- PAGEBREAK --> как разрыв страницы
+#   - Автоматические разрывы страниц перед:
+#     * Содержанием (## Содержание)
+#     * Введением (## Введение)
+#     * Каждым разделом 1-го уровня (# Раздел)
 #
 # Требуется:
 #   pandoc
@@ -54,17 +58,45 @@ trap 'rm -f "$TMP"' EXIT
 echo "Входной файл : $INPUT"
 echo "Выходной файл: $OUTPUT"
 
-# Заменяем:
+# Обработка Markdown:
 #
-#   <!-- PAGEBREAK -->
+# 1. Заменяем <!-- PAGEBREAK --> на HTML разрыв страницы
+# 2. Добавляем разрыв страницы перед "## Содержание"
+# 3. Добавляем разрыв страницы перед "## Введение"
+# 4. Добавляем разрыв страницы перед каждым разделом 1-го уровня (# Раздел)
 #
-# на HTML с разрывом страницы.
-#
-# Важно:
-# PAGEBREAK должен находиться отдельной строкой.
-sed \
-    's|^[[:space:]]*<!--[[:space:]]*PAGEBREAK[[:space:]]*-->[[:space:]]*$|<div class="pagebreak"></div>|' \
-    "$INPUT" > "$TMP"
+# Сначала обрабатываем вручную PAGEBREAK, затем добавляем разрывы перед ключевыми секциями.
+python3 - "$INPUT" "$TMP" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+src = Path(sys.argv[1])
+dst = Path(sys.argv[2])
+text = src.read_text(encoding='utf-8')
+
+# 1. PAGEBREAK: отдельная строка комментария
+text = re.sub(r'(?m)^\s*<!--\s*PAGEBREAK\s*-->\s*$', '<div class="pagebreak"></div>', text)
+
+# 2. Разрывы страниц перед ключевыми заголовками.
+# Используем только для заголовков уровня 2: Содержание, Введение
+# и заголовков уровня 1: # ...
+lines = text.splitlines()
+out = []
+for i, line in enumerate(lines):
+    stripped = line.strip()
+    if stripped.startswith('## Содержание') or stripped.startswith('## Введение'):
+        if not out or out[-1] != '<div class="pagebreak"></div>':
+            out.append('<div class="pagebreak"></div>')
+    elif re.match(r'^#\s+.+', stripped):
+        if not out or out[-1] != '<div class="pagebreak"></div>':
+            out.append('<div class="pagebreak"></div>')
+    out.append(line)
+
+text = '\n'.join(out) + '\n'
+
+dst.write_text(text, encoding='utf-8')
+PY
 
 # Конвертация Markdown -> HTML
 pandoc "$TMP" \
@@ -83,9 +115,10 @@ fi
 # Добавляем CSS перед </head>
 #
 # CSS нужен для:
-#   - разрыва страницы
+#   - разрыва страницы (для печати и копирования в LibreOffice)
 #   - нормального отображения таблиц
 #   - изображений
+#   - предотвращения разрыва строк таблиц при печати
 #
 python3 - "$OUTPUT" <<'PY'
 from pathlib import Path
@@ -100,6 +133,11 @@ css = r"""
 .pagebreak {
     break-after: page;
     page-break-after: always;
+    clear: both;
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 0;
 }
 
 /* Таблицы */
@@ -118,18 +156,76 @@ td {
 
 th {
     font-weight: bold;
+    background-color: #f0f0f0;
 }
 
 /* Изображения */
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 /* При печати не разрывать строку таблицы */
 tr {
     break-inside: avoid;
     page-break-inside: avoid;
+}
+
+/* Разделы не должны начинаться в конце страницы */
+h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+    break-before: avoid;
+    page-break-before: avoid;
+}
+
+/* Абзацы не должны быть единственными на странице */
+p {
+    widows: 2;
+    orphans: 2;
+}
+
+/* Списки не должны разрываться */
+ul, ol {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Блокировки кода */
+pre, code {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Для LibreOffice - увеличиваем читаемость */
+body {
+    font-family: "Liberation Serif", "Times New Roman", serif;
+    line-height: 1.5;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.3em;
 }
 </style>
 """
@@ -145,6 +241,13 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Готово: $OUTPUT"
+echo ""
+echo "Инструкция для копирования в LibreOffice Writer:"
+echo "  1. Откройте LibreOffice Writer"
+echo "  2. Выберите: Файл → Открыть → $OUTPUT"
+echo "  3. Или скопируйте содержимое файла и вставьте в Writer"
+echo "  4. Разрывы страниц должны быть распознаны автоматически"
+echo ""
 
 # Открываем HTML в браузере
 xdg-open "$OUTPUT" >/dev/null 2>&1 &
