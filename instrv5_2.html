@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tmp.UxYk5cF44G</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+background-color: #1a1a1a;
+border: none;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+<style>
+/* Разрыв страницы */
+p.pagebreak {
+    break-after: page;
+    page-break-after: always;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+/* Таблицы */
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: auto;
+}
+
+th,
+td {
+    border: 1px solid #888;
+    padding: 6px 10px;
+    vertical-align: top;
+}
+
+th {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+/* Изображения */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* При печати не разрывать строку таблицы */
+tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Разделы не должны начинаться в конце страницы */
+h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+    break-before: avoid;
+    page-break-before: avoid;
+}
+
+/* Абзацы не должны быть единственными на странице */
+p {
+    widows: 2;
+    orphans: 2;
+}
+
+/* Списки не должны разрываться */
+ul, ol {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Блокировки кода */
+pre, code {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Для LibreOffice - увеличиваем читаемость */
+body {
+    font-family: "Liberation Serif", "Times New Roman", serif;
+    line-height: 1.5;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 0.3em;
+}
+</style>
+
+</head>
+<body>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h1 id="заявка-на-изменение">Заявка на изменение</h1>
+<p><strong>Программный комплекс «Цифровой полигон»</strong></p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="содержание">Содержание</h2>
+<p><a href="#введение">Введение</a></p>
+<p><a href="#1-цель-изменения">1 Цель изменения</a></p>
+<p><a href="#2-зоны-ответственности">2 Зоны ответственности</a></p>
+<p><a href="#3-список-используемых-в-тексте-аз-сокращений">3 Список
+используемых в тексте АЗ сокращений</a></p>
+<p><a href="#4-архитектурное-решение">4 Архитектурное решение</a></p>
+<p><a href="#5-характеристики-серверного-оборудования">5 Характеристики
+серверного оборудования</a></p>
+<p><a href="#6-программное-обеспечение-и-лицензирование">6 Программное
+обеспечение и лицензирование</a></p>
+<p><a href="#7-объекты-создаваемые-в-ад-dns">7 Объекты, создаваемые в
+АД, DNS</a></p>
+<p><a href="#8-права-доступа-и-привилегии">8 Права доступа и
+привилегии</a></p>
+<p><a href="#9-интеграция-с-системами-ит">9 Интеграция с системами
+ИТ</a></p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="введение">Введение</h2>
+<p>Настоящий документ является основанием для выполнения работ по
+развертыванию и настройке программного комплекса «Цифровой полигон»
+(далее — Система). Система предназначена для работы с документами ГОСТ и
+включает компоненты Backend, Frontend, базу данных PostgreSQL, брокер
+сообщений RabbitMQ и сервисы машинного обучения с поддержкой GPU.</p>
+<p>Система обеспечивает обработку, хранение и отображение документов
+ГОСТ, а также импорт документов из системы мастер-данных (МДМ) через
+защищённый VPN-канал. Компоненты системы могут развертываться как на
+виртуальных машинах, так и в контейнеризированной среде Docker.</p>
+<p><strong>Важное примечание:</strong> Все соединения с внешней системой
+МДМ для импорта документов осуществляются <strong>исключительно через
+защищённый VPN-туннель</strong> с использованием AES-256 шифрования и
+сертификатной аутентификации.</p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="1-цель-изменения">1. Цель изменения</h2>
+<p>Обеспечить вычислительными и сетевыми ресурсами продуктивный ландшафт
+программного комплекса «Цифровой полигон» для работы с документами ГОСТ
+и импорта документов из МДМ через защищённый VPN.</p>
+<p>В рамках изменения необходимо:</p>
+<ul>
+<li>развернуть и настроить Backend, включающий Nginx, PHP-FPM, Symfony и
+RabbitMQ;</li>
+<li>развернуть базу данных PostgreSQL;</li>
+<li>развернуть Frontend на базе Node.js и Nuxt.js;</li>
+<li>развернуть компоненты машинного обучения на отдельном сервере с GPU
+(NVIDIA A100/V100);</li>
+<li>обеспечить сетевое взаимодействие между компонентами Системы;</li>
+<li>обеспечить доступ ML к API Backend, файловой системе хранения
+документов и RabbitMQ;</li>
+<li>настроить защищённый VPN-туннель для взаимодействия Backend с API
+системы МДМ;</li>
+<li>выполнить проверку доступности и работоспособности Системы;</li>
+<li>выполнить тестирование импорта документов через VPN.</li>
+</ul>
+<p><strong>Назначение Системы:</strong> работа с документами ГОСТ,
+включая загрузку, обработку, хранение, поиск и отображение
+документов.</p>
+<p><strong>Владелец создаваемых виртуальных машин:</strong> определяется
+руководителем проекта.</p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="2-зоны-ответственности">2. Зоны ответственности</h2>
+<p>В таблице 1 перечислены лица, ответственные за различные аспекты
+реализации изменений.</p>
+<p><strong>Таблица 1 — Таблица ответственных</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Роль</th>
+<th>Подразделение</th>
+<th>Ответственное лицо</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Куратор проекта</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Руководитель проекта</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Администратор информационной системы</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор инфраструктуры</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Администратор сети</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор базы данных</td>
+<td>ИТ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Администратор информационной безопасности</td>
+<td>ИБ</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор VPN и МДМ</td>
+<td>ИТ / ИБ</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Представитель исполнителя</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Примечание</strong> — Заполняется руководителем проекта.</p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="3-список-используемых-в-тексте-аз-сокращений">3. Список
+используемых в тексте АЗ сокращений</h2>
+<ul>
+<li><strong>ГОСТ</strong> — государственный стандарт;</li>
+<li><strong>МДМ</strong> — система управления мастер-данными;</li>
+<li><strong>VPN</strong> — Virtual Private Network, виртуальная частная
+сеть;</li>
+<li><strong>Backend</strong> — серверная часть приложения;</li>
+<li><strong>Frontend</strong> — клиентская часть приложения;</li>
+<li><strong>ML</strong> — Machine Learning, машинное обучение;</li>
+<li><strong>GPU</strong> — Graphics Processing Unit, графический
+процессор;</li>
+<li><strong>CUDA</strong> — Compute Unified Device Architecture,
+архитектура GPU NVIDIA;</li>
+<li><strong>API</strong> — Application Programming Interface,
+программный интерфейс приложения;</li>
+<li><strong>HTTP/HTTPS</strong> — протоколы передачи гипертекста;</li>
+<li><strong>Nginx</strong> — веб-сервер и обратный прокси-сервер;</li>
+<li><strong>PHP-FPM</strong> — менеджер процессов для PHP;</li>
+<li><strong>Symfony</strong> — фреймворк для разработки приложений на
+PHP;</li>
+<li><strong>PostgreSQL</strong> — система управления реляционными базами
+данных;</li>
+<li><strong>RabbitMQ</strong> — брокер сообщений;</li>
+<li><strong>Node.js</strong> — программная платформа для выполнения
+JavaScript;</li>
+<li><strong>Nuxt.js</strong> — фреймворк для разработки
+веб-приложений;</li>
+<li><strong>Composer</strong> — менеджер зависимостей PHP;</li>
+<li><strong>NPM</strong> — менеджер пакетов Node.js;</li>
+<li><strong>PM2</strong> — менеджер процессов приложений;</li>
+<li><strong>Apache FOP</strong> — средство формирования
+PDF-документов;</li>
+<li><strong>JEuclid</strong> — компонент обработки математических
+формул;</li>
+<li><strong>OCR</strong> — оптическое распознавание символов;</li>
+<li><strong>Docker</strong> — платформа контейнеризации приложений;</li>
+<li><strong>DNS</strong> — система доменных имен;</li>
+<li><strong>NTP</strong> — протокол синхронизации времени;</li>
+<li><strong>СУБД</strong> — система управления базами данных;</li>
+<li><strong>ВМ</strong> — виртуальная машина;</li>
+<li><strong>ЛВС</strong> — локальная вычислительная сеть;</li>
+<li><strong>СХД</strong> — система хранения данных;</li>
+<li><strong>AMQP</strong> — Advanced Message Queuing Protocol;</li>
+<li><strong>AES</strong> — Advanced Encryption Standard.</li>
+</ul>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="4-архитектурное-решение">4. Архитектурное решение</h2>
+<h3 id="41-общая-архитектура">4.1. Общая архитектура</h3>
+<p>Система построена по распределенной схеме. Компоненты Системы
+размещаются на отдельных серверах и взаимодействуют по внутренней
+сети.</p>
+<p><strong>Уровень представления</strong> — Frontend обеспечивает
+пользовательский доступ к Системе и отображает документы ГОСТ. Frontend
+размещается на сервере <code>192.168.120.222</code>.</p>
+<p><strong>Уровень бизнес-логики</strong> — Backend реализует обработку
+запросов, бизнес-логику, работу с документами, взаимодействие с
+PostgreSQL, RabbitMQ и ML, а также импорт документов из МДМ через
+защищённый VPN-туннель. Backend, Nginx и RabbitMQ размещаются на сервере
+<code>192.168.120.220</code>.</p>
+<p><strong>Уровень данных</strong> — PostgreSQL обеспечивает хранение
+данных Системы и размещается на сервере
+<code>192.168.120.221</code>.</p>
+<p><strong>Уровень машинного обучения</strong> — ML-компоненты с
+поддержкой GPU выполняют распознавание, анализ и обработку документов.
+Сервер ML <code>192.168.120.219</code> не имеет открытых сетевых портов
+для внешних подключений и взаимодействует с остальной Системой только
+исходящими соединениями к Backend API, RabbitMQ и файловой системе
+хранения.</p>
+<h3 id="42-взаимодействие-компонентов">4.2. Взаимодействие
+компонентов</h3>
+<ol type="1">
+<li>Пользователь обращается к Frontend по адресу сервера
+<code>192.168.120.222</code>.</li>
+<li>Frontend направляет запросы к Backend API на сервер
+<code>192.168.120.220</code>.</li>
+<li>Nginx принимает внешние HTTP/HTTPS-запросы и передает их приложению
+Backend.</li>
+<li>Backend обращается к PostgreSQL на сервере
+<code>192.168.120.221</code> для хранения и получения данных.</li>
+<li>Backend использует RabbitMQ на сервере <code>192.168.120.220</code>
+для асинхронной отправки задач в очередь.</li>
+<li><strong>ML-компонент на сервере <code>192.168.120.219</code>
+инициирует подключение к:</strong>
+<ul>
+<li><strong>Backend API</strong> (на <code>192.168.120.220</code>) для
+получения заданий на обработку и отправки результатов;</li>
+<li><strong>RabbitMQ</strong> (на <code>192.168.120.220</code>) для
+получения задач из очереди и отправки результатов;</li>
+<li><strong>Файловой системе хранения</strong> на
+<code>192.168.120.220</code> для чтения исходных документов и записи
+обработанных результатов.</li>
+</ul></li>
+<li>Backend обращается к API МДМ через защищённый VPN-туннель для
+импорта документов и связанных данных.</li>
+</ol>
+<h3 id="43-роль-ml-сервера-в-системе">4.3. Роль ML-сервера в
+системе</h3>
+<p>ML-сервер <code>192.168.120.219</code> выполняет следующие
+функции:</p>
+<ul>
+<li>получение задач из очереди RabbitMQ;</li>
+<li>загрузка документов из общей файловой системы;</li>
+<li>распознавание текста и анализ содержимого документов (OCR с
+использованием GPU, ML-модели);</li>
+<li>обработка и преобразование документов ГОСТ;</li>
+<li>сохранение результатов обработки в файловую систему;</li>
+<li>отправка уведомлений о завершении задач в Backend через API;</li>
+<li>отправка результатов в очередь RabbitMQ для Backend.</li>
+</ul>
+<p><strong>Важно:</strong> ML-сервер не имеет входящих портов, доступных
+для внешних подключений. Все взаимодействие инициируется ML-компонентом,
+что повышает безопасность. <strong>GPU (видеокарта NVIDIA A100 или V100)
+является обязательным компонентом</strong> для эффективной работы
+ML-моделей и OCR.</p>
+<h3 id="44-защищённая-интеграция-с-мдм-через-vpn">4.4. Защищённая
+интеграция с МДМ через VPN</h3>
+<p>Программный комплекс «Цифровой полигон» имеет возможность импорта
+документов ГОСТ из МДМ через API. Все соединения с МДМ осуществляются
+<strong>исключительно через защищённый VPN-туннель</strong>.</p>
+<p><strong>Требования к VPN:</strong></p>
+<ul>
+<li><strong>Тип:</strong> Site-to-Site VPN или Client VPN с поддержкой
+сертификатов X.509</li>
+<li><strong>Шифрование:</strong> AES-256 или эквивалент</li>
+<li><strong>Аутентификация:</strong> Сертификаты X.509 или PSK
+(Pre-Shared Key) с сильным паролем</li>
+<li><strong>Пропускная способность:</strong> минимум 10 Мб/с для
+стабильного импорта документов</li>
+<li><strong>Надёжность:</strong> гарантированное время восстановления
+соединения не более 5 минут</li>
+</ul>
+<p><strong>Для обеспечения интеграции необходимо:</strong></p>
+<ul>
+<li>установить и настроить VPN-соединение между Backend
+<code>192.168.120.220</code> и МДМ;</li>
+<li>разрешить сетевой доступ от <code>192.168.120.220</code> к API МДМ
+через VPN-туннель;</li>
+<li>определить адрес, порт и протокол API МДМ;</li>
+<li>настроить параметры подключения в переменных окружения Backend;</li>
+<li>настроить авторизацию в API МДМ в соответствии с требованиями
+владельца системы;</li>
+<li>обеспечить журналирование всех операций импорта;</li>
+<li>настроить мониторинг состояния VPN-соединения;</li>
+<li>выполнить проверку успешного получения и обработки документов.</li>
+</ul>
+<p>Конкретный URL API МДМ, порт, способ авторизации и формат сообщений
+определяются владельцем МДМ и указываются в эксплуатационной
+конфигурации Backend.</p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="5-характеристики-серверного-оборудования">5. Характеристики
+серверного оборудования</h2>
+<p>В таблице 2 приведены серверы, на которых размещаются компоненты
+Системы, с указанием соответствия требованиям из документа
+«Предварительные требования к КТС».</p>
+<p><strong>Таблица 2 — Перечень серверов и компонентов</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">№</th>
+<th>IP-адрес</th>
+<th>Роль</th>
+<th>Размещаемые компоненты</th>
+<th>Назначение</th>
+<th>Требуемые ресурсы (мин/рек)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td><code>192.168.120.220</code></td>
+<td>Backend</td>
+<td>Backend, Nginx, RabbitMQ, PHP-FPM, Symfony, Composer, Apache FOP,
+общая файловая система, NFS Server</td>
+<td>Сервер бизнес-логики, API, очередей, формирования документов и
+хранилища</td>
+<td>CPU: 16/32, RAM: 32/64 Gb, Диск: 80/160 SSD + 200/500 хранилище</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td><code>192.168.120.221</code></td>
+<td>СУБД</td>
+<td>PostgreSQL, инструменты резервного копирования</td>
+<td>Хранение данных Системы</td>
+<td>CPU: 16/32, RAM: 32/64 Gb, Диск: 100/160 SSD данные + 60/100 SSD
+WAL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td><code>192.168.120.222</code></td>
+<td>Frontend</td>
+<td>Node.js 18+, Nuxt.js, NPM, Nginx</td>
+<td>Пользовательский интерфейс Системы</td>
+<td>CPU: 8/16, RAM: 16/32 Gb, Диск: 80/160 SSD</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td><code>192.168.120.219</code></td>
+<td>ML</td>
+<td>Python 3.9+, TensorFlow GPU, EasyOCR, Tesseract, NVIDIA CUDA/cuDNN,
+PM2, NFS Client</td>
+<td>Машинное обучение, распознавание и обработка документов, <strong>GPU
+обязателен</strong></td>
+<td>CPU: 32/64, RAM: 48/96 Gb, Диск: 100/200 SSD, <strong>GPU: 1-4 ×
+NVIDIA A100/V100</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Операционная система серверов поддерживает следующие варианты.
+Фактические значения CPU, RAM, дисковой подсистемы, FQDN, VLAN и
+владельца ВМ заполняются руководителем проекта совместно с
+администратором инфраструктуры.</p>
+<p><strong>Таблица 3 — Спецификация серверов и операционные
+системы</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">№</th>
+<th>Сервер</th>
+<th>Тип</th>
+<th>Операционная система (рекомендуется)</th>
+<th>IP-адрес</th>
+<th>Роль</th>
+<th>Назначение</th>
+<th>Развертывание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>Backend</td>
+<td>Вирт.</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+</td>
+<td><code>192.168.120.220</code></td>
+<td>Backend</td>
+<td>Symfony, PHP-FPM, Nginx, RabbitMQ, Apache FOP, хранилище</td>
+<td>Docker / Native</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>PostgreSQL</td>
+<td>Вирт.</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+</td>
+<td><code>192.168.120.221</code></td>
+<td>СУБД</td>
+<td>PostgreSQL 15+ и хранение данных</td>
+<td>Docker / Native</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>Frontend</td>
+<td>Вирт.</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+</td>
+<td><code>192.168.120.222</code></td>
+<td>Frontend</td>
+<td>Node.js, Nuxt.js и пользовательский интерфейс</td>
+<td>Docker / Native</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>ML</td>
+<td>Вирт. / Физ.*</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+</td>
+<td><code>192.168.120.219</code></td>
+<td>ML</td>
+<td>Python, OCR, ML-модели с поддержкой GPU</td>
+<td>Docker / Native</td>
+</tr>
+</tbody>
+</table>
+<p>*Для ML-сервера рекомендуется физический сервер для обеспечения
+стабильной работы GPU.</p>
+<p><strong>Примечания</strong></p>
+<ol type="1">
+<li><p><strong>Русские защищённые ОС:</strong></p>
+<ul>
+<li>Astra Linux SE — с соответствующей лицензией для серверного
+использования (рекомендуется для государственных учреждений)</li>
+<li>ALT Linux Server — с соответствующей лицензией для серверного
+использования</li>
+</ul></li>
+<li><p><strong>Типы размещения:</strong> допускается использование
+«физ.» (физический сервер) или «вирт.» (виртуальная машина).</p></li>
+<li><p><strong>Развертывание:</strong></p>
+<ul>
+<li>Docker: требуется Docker Engine 20.10+, Docker Compose 2.0+. Для ML
+с GPU требуется NVIDIA Docker Runtime.</li>
+<li>Native: требуется установка всех компонентов непосредственно в ОС
+(более сложная конфигурация).</li>
+</ul></li>
+<li><p><strong>ML-сервер (<code>192.168.120.219</code>):</strong></p>
+<ul>
+<li><strong>Обязательно:</strong> GPU NVIDIA A100 (рекомендуется 2-4
+шт.) или V100 (минимум 1 шт.)</li>
+<li><strong>Обязательно:</strong> CUDA Toolkit 11.8+ и cuDNN 8.6+</li>
+<li><strong>Обязательно:</strong> система охлаждения мощностью 3-5
+кВт</li>
+<li><strong>Рекомендуется:</strong> ИБП (Источник Бесперебойного
+Питания)</li>
+<li>Не должен иметь открытых входящих портов (только SSH для
+администрирования)</li>
+</ul></li>
+<li><p><strong>Фактические характеристики серверов</strong> должны быть
+внесены в документ после выполнения работ.</p></li>
+<li><p><strong>FQDN и сетевые параметры</strong> уточняются системным
+администратором.</p></li>
+</ol>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="6-программное-обеспечение-и-лицензирование">6. Программное
+обеспечение и лицензирование</h2>
+<h3 id="61-проводимые-изменения">6.1. Проводимые изменения</h3>
+<p><strong>Таблица 4 — Проводимые изменения</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Статус</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Х</td>
+<td>Развертывание серверов Backend, PostgreSQL, Frontend и ML</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Установка и настройка Astra Linux SE / ALT Linux Server / Debian
+11</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Установка и настройка Nginx, PHP-FPM и Symfony</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Установка и настройка RabbitMQ</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Установка и настройка PostgreSQL 15+</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Установка Node.js 18+, NPM и Nuxt.js 3.x</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Создание виртуального окружения Python и установка
+ML-зависимостей</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Установка и настройка NVIDIA CUDA Toolkit 11.8+, cuDNN 8.6+ и
+TensorFlow GPU для ML</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Настройка Apache FOP и JEuclid</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Настройка общей файловой системы для хранения документов (NFS)</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Установка и настройка Docker Engine и Docker Compose (при
+развертывании через Docker)</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Настройка взаимодействия ML с Backend API, RabbitMQ и файловой
+системой</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td><strong>Настройка защищённого VPN-туннеля для связи Backend с МДМ
+(AES-256, X.509)</strong></td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Настройка сетевых правил доступа (отсутствие входящих портов на
+ML)</td>
+</tr>
+<tr class="odd">
+<td>Х</td>
+<td>Проверка доступности сервисов и импорта документов через VPN</td>
+</tr>
+<tr class="even">
+<td>Х</td>
+<td>Тестирование работы GPU на ML-сервере</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-состав-устанавливаемого-по">6.2. Состав устанавливаемого
+ПО</h3>
+<p><strong>Таблица 5 — Перечень программного обеспечения для виртуальных
+машин</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Сервер</th>
+<th>Программное обеспечение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>192.168.120.220</code> Backend</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+, Docker Engine /
+Native: Nginx, PHP 8.2 с расширениями (FPM, PostgreSQL, XML, ZIP, AMQP,
+intl, ctype, iconv, PCRE, session, SimpleXML, Tokenizer), Symfony 6.x,
+Composer, RabbitMQ, Apache FOP, JEuclid, NFS Server, OpenSSL</td>
+</tr>
+<tr class="even">
+<td><code>192.168.120.221</code> PostgreSQL</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+, Docker Engine /
+Native: PostgreSQL 15+, инструменты резервного копирования (pg_dump,
+pgBackRest), средства мониторинга</td>
+</tr>
+<tr class="odd">
+<td><code>192.168.120.222</code> Frontend</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+, Docker Engine /
+Native: Node.js 18 LTS+, NPM, Nuxt.js 3.x, Nginx</td>
+</tr>
+<tr class="even">
+<td><code>192.168.120.219</code> ML</td>
+<td>Astra Linux SE / ALT Linux Server / Debian 11+, Docker Engine /
+Native: Python 3.9+, pip, venv, <strong>NVIDIA CUDA Toolkit 11.8+, cuDNN
+8.6+</strong>, TensorFlow 2.13+ (GPU), EasyOCR, Tesseract OCR 4.0+,
+Pillow, Pandas, PyEnchant, Pymorphy3, ONNX Runtime, Pika, Flask,
+Waitress, PM2, NFS Client</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-лицензирование">6.3. Лицензирование</h3>
+<p>В составе Системы используется программное обеспечение с открытыми
+лицензиями (Open Source). Дополнительные проприетарные лицензии не
+требуются.</p>
+<p><strong>Исключения:</strong></p>
+<ul>
+<li>Операционные системы Astra Linux SE и ALT Linux Server требуют
+соответствующих лицензий для серверного использования (приобретаются
+отдельно)</li>
+<li>NVIDIA CUDA Toolkit и cuDNN распространяются под свободной лицензией
+для ИИ и ML-приложений</li>
+</ul>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="7-объекты-создаваемые-в-ад-dns">7. Объекты, создаваемые в АД,
+DNS</h2>
+<p>Создание объектов AD и DNS выполняется системным администратором при
+наличии соответствующей корпоративной инфраструктуры.</p>
+<p><strong>Таблица 6 — DNS-записи серверов</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">№</th>
+<th>Имя объекта</th>
+<th>Тип</th>
+<th>Описание</th>
+<th>IP-адрес</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td>backend</td>
+<td>A-запись</td>
+<td>Сервер Backend, Nginx, RabbitMQ и хранилища</td>
+<td><code>192.168.120.220</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td>postgres</td>
+<td>A-запись</td>
+<td>Сервер PostgreSQL</td>
+<td><code>192.168.120.221</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td>frontend</td>
+<td>A-запись</td>
+<td>Сервер Frontend</td>
+<td><code>192.168.120.222</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td>ml</td>
+<td>A-запись</td>
+<td>Сервер машинного обучения (изолирован)</td>
+<td><code>192.168.120.219</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td>vpn-mdm</td>
+<td>A-запись (CNAME)</td>
+<td>VPN-туннель к системе МДМ</td>
+<td>По настройке VPN</td>
+</tr>
+</tbody>
+</table>
+<p>При использовании обратной зоны DNS для указанных адресов создаются
+соответствующие PTR-записи. Фактические FQDN определяются
+администратором DNS.</p>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="8-права-доступа-и-привилегии">8. Права доступа и привилегии</h2>
+<p>Доступ к серверам предоставляется только администраторам и сервисным
+учетным записям, необходимым для работы компонентов Системы.</p>
+<p><strong>Таблица 7 — Назначение прав доступа</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Учетная запись или группа</th>
+<th>Ресурс</th>
+<th>Права</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Администраторы ИТ</td>
+<td>Все серверы</td>
+<td>Административный доступ по SSH</td>
+<td>Доступ ограничивается доверенной сетью или bastion host</td>
+</tr>
+<tr class="even">
+<td>Администратор VPN/МДМ</td>
+<td>Backend <code>192.168.120.220</code></td>
+<td>Настройка и мониторинг VPN-соединения</td>
+<td>Управление сертификатами, логирование</td>
+</tr>
+<tr class="odd">
+<td>Пользователь приложения</td>
+<td>Backend, Frontend, ML</td>
+<td>Доступ к каталогам приложений</td>
+<td>Без административных прав ОС</td>
+</tr>
+<tr class="even">
+<td><code>www-data</code> или пользователь PHP-FPM</td>
+<td><code>192.168.120.220</code></td>
+<td>Выполнение PHP-приложения и доступ к каталогу Backend</td>
+<td>Права назначаются по принципу минимальных привилегий</td>
+</tr>
+<tr class="odd">
+<td><code>postgres</code></td>
+<td><code>192.168.120.221</code></td>
+<td>Управление PostgreSQL и файлами базы данных</td>
+<td>Используется только для работы СУБД</td>
+</tr>
+<tr class="even">
+<td><code>rabbitmq</code></td>
+<td><code>192.168.120.220</code></td>
+<td>Управление очередями RabbitMQ и доступ к AMQP</td>
+<td>Доступ к Management ограничивается администраторами</td>
+</tr>
+<tr class="odd">
+<td>Пользователь ML</td>
+<td><code>192.168.120.219</code></td>
+<td>Запуск Python-приложения, моделей, CUDA и виртуального окружения;
+подключение к Backend API, RabbitMQ и файловой системе</td>
+<td>Запуск процессов через PM2; отсутствие входящих портов; доступ к
+GPU</td>
+</tr>
+<tr class="even">
+<td>Backend</td>
+<td>Файловая система <code>/storage</code></td>
+<td>Чтение/запись документов</td>
+<td>Общее хранилище для Frontend, Backend и ML</td>
+</tr>
+<tr class="odd">
+<td>ML</td>
+<td>Файловая система <code>/storage</code></td>
+<td>Чтение исходных документов и запись результатов</td>
+<td>Подключение через NFS</td>
+</tr>
+<tr class="even">
+<td>Backend</td>
+<td>VPN-туннель к МДМ</td>
+<td>Исходящий доступ к API импорта через VPN</td>
+<td>Учетные данные VPN и авторизация в API хранятся в защищенной
+конфигурации</td>
+</tr>
+</tbody>
+</table>
+<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>
+
+<h2 id="9-интеграция-с-системами-ит">9. Интеграция с системами ИТ</h2>
+<h3 id="91-системы-мониторинга-и-управления">9.1. Системы мониторинга и
+управления</h3>
+<p>Необходимо обеспечить возможность мониторинга доступности и состояния
+серверов и сервисов Системы. Рекомендуется контролировать:</p>
+<ul>
+<li>доступность IP-адресов
+<code>192.168.120.219</code>–<code>192.168.120.222</code>;</li>
+<li>состояние Nginx, PHP-FPM, RabbitMQ, PostgreSQL, Frontend и
+ML-приложения;</li>
+<li>доступность и работоспособность API Backend;</li>
+<li>состояние подключения ML к RabbitMQ и Backend API;</li>
+<li><strong>состояние VPN-соединения Backend к МДМ;</strong></li>
+<li><strong>загрузку GPU на ML-сервере и температуру
+видеокарты;</strong></li>
+<li>заполнение дискового пространства на всех серверах и в
+хранилище;</li>
+<li>загрузку CPU и RAM;</li>
+<li>наличие ошибок в журналах;</li>
+<li>успешность операций импорта документов из МДМ через VPN и обработки
+ML.</li>
+</ul>
+<h3 id="92-интеграция-с-системами-информационной-безопасности">9.2.
+Интеграция с системами информационной безопасности</h3>
+<p>Необходимость интеграции с антивирусом, DLP, SIEM и WAF определяется
+подразделением информационной безопасности. При наличии корпоративной
+системы SIEM рекомендуется передавать в нее журналы Nginx, Backend,
+RabbitMQ, PostgreSQL, Frontend и ML. <strong>Особое внимание должно
+уделяться логированию всех операций через VPN-туннель к
+МДМ.</strong></p>
+<h3 id="93-dns-и-ntp">9.3. DNS и NTP</h3>
+<p>Серверы Системы должны использовать согласованные DNS-серверы и
+синхронизировать время с корпоративным NTP-сервером. Синхронизация
+времени необходима для корректного формирования журналов, обработки
+очередей и расследования инцидентов. <strong>Это критично для
+синхронизации операций через VPN.</strong></p>
+<h3 id="94-защищённая-интеграция-с-мдм-через-vpn">9.4. Защищённая
+интеграция с МДМ через VPN</h3>
+<p><strong>Таблица 8 — Взаимодействие с внешними системами через
+защищённый VPN</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Источник</th>
+<th>Назначение</th>
+<th>Протокол</th>
+<th>Портал</th>
+<th>Шифрование</th>
+<th>Назначение взаимодействия</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Backend <code>192.168.120.220</code></td>
+<td>API МДМ (через VPN-туннель)</td>
+<td>HTTP/HTTPS</td>
+<td>Порт API МДМ</td>
+<td>AES-256, X.509 сертификаты</td>
+<td>Импорт документов ГОСТ и связанных данных</td>
+</tr>
+<tr class="even">
+<td>Frontend <code>192.168.120.222</code></td>
+<td>Backend <code>192.168.120.220</code></td>
+<td>HTTP/HTTPS</td>
+<td>80, 443</td>
+<td>Рекомендуется TLS</td>
+<td>Пользовательские запросы и отображение данных</td>
+</tr>
+<tr class="odd">
+<td>Backend <code>192.168.120.220</code></td>
+<td>PostgreSQL <code>192.168.120.221</code></td>
+<td>TCP</td>
+<td>5432</td>
+<td>—</td>
+<td>Хранение и получение данных</td>
+</tr>
+<tr class="even">
+<td>Backend <code>192.168.120.220</code></td>
+<td>RabbitMQ на <code>192.168.120.220</code></td>
+<td>AMQP/TCP</td>
+<td>5672</td>
+<td>—</td>
+<td>Отправка задач в очередь</td>
+</tr>
+<tr class="odd">
+<td>ML <code>192.168.120.219</code></td>
+<td>Backend API <code>192.168.120.220</code></td>
+<td>HTTP/HTTPS</td>
+<td>Порт API</td>
+<td>Рекомендуется TLS</td>
+<td>Получение заданий и отправка результатов</td>
+</tr>
+<tr class="even">
+<td>ML <code>192.168.120.219</code></td>
+<td>RabbitMQ <code>192.168.120.220</code></td>
+<td>AMQP/TCP</td>
+<td>5672</td>
+<td>—</td>
+<td>Получение задач из очереди и отправка результатов</td>
+</tr>
+<tr class="odd">
+<td>ML <code>192.168.120.219</code></td>
+<td>Файловая система <code>192.168.120.220</code></td>
+<td>NFS/TCP</td>
+<td>2049</td>
+<td>—</td>
+<td>Чтение исходных документов и запись результатов</td>
+</tr>
+</tbody>
+</table>
+<p>Адрес, порт и параметры авторизации API МДМ предоставляются
+владельцем МДМ и не должны включаться в открытый текст документа, если
+содержат конфиденциальные сведения. Все параметры VPN (сертификаты,
+ключи, PSK) хранятся в защищённом хранилище с ограниченным доступом.</p>
+<h3 id="95-сетевые-правила-доступа">9.5. Сетевые правила доступа</h3>
+<p><strong>Таблица 9 — Основные правила межсетевого экрана</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Источник</th>
+<th>Назначение</th>
+<th style="text-align: right;">Порт</th>
+<th>Протокол</th>
+<th>Назначение</th>
+<th>Входящий/Исходящий</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Пользователи</td>
+<td>Frontend <code>192.168.120.222</code></td>
+<td style="text-align: right;">80, 443</td>
+<td>TCP</td>
+<td>Доступ к пользовательскому интерфейсу</td>
+<td>Входящий</td>
+</tr>
+<tr class="even">
+<td>Frontend <code>192.168.120.222</code></td>
+<td>Backend <code>192.168.120.220</code></td>
+<td style="text-align: right;">80, 443</td>
+<td>TCP</td>
+<td>Запросы Frontend к Backend API</td>
+<td>Исходящий</td>
+</tr>
+<tr class="odd">
+<td>Backend <code>192.168.120.220</code></td>
+<td>PostgreSQL <code>192.168.120.221</code></td>
+<td style="text-align: right;">5432</td>
+<td>TCP</td>
+<td>Работа с базой данных</td>
+<td>Исходящий</td>
+</tr>
+<tr class="even">
+<td>Backend <code>192.168.120.220</code></td>
+<td>RabbitMQ <code>192.168.120.220</code></td>
+<td style="text-align: right;">5672</td>
+<td>TCP</td>
+<td>Работа с очередью сообщений</td>
+<td>Локальный</td>
+</tr>
+<tr class="odd">
+<td>Администраторы</td>
+<td>RabbitMQ Management <code>192.168.120.220</code></td>
+<td style="text-align: right;">15672</td>
+<td>TCP</td>
+<td>Администрирование RabbitMQ, при необходимости</td>
+<td>Входящий</td>
+</tr>
+<tr class="even">
+<td>ML <code>192.168.120.219</code></td>
+<td>Backend API <code>192.168.120.220</code></td>
+<td style="text-align: right;">80, 443</td>
+<td>TCP</td>
+<td>Обработка документов моделями ML</td>
+<td>Исходящий</td>
+</tr>
+<tr class="odd">
+<td>ML <code>192.168.120.219</code></td>
+<td>RabbitMQ <code>192.168.120.220</code></td>
+<td style="text-align: right;">5672</td>
+<td>TCP</td>
+<td>Получение задач и отправка результатов</td>
+<td>Исходящий</td>
+</tr>
+<tr class="even">
+<td>ML <code>192.168.120.219</code></td>
+<td>Файловая система <code>192.168.120.220</code></td>
+<td style="text-align: right;">2049</td>
+<td>TCP/UDP</td>
+<td>Доступ к хранилищу документов (NFS)</td>
+<td>Исходящий</td>
+</tr>
+<tr class="odd">
+<td>Backend <code>192.168.120.220</code></td>
+<td>API МДМ (через VPN)</td>
+<td style="text-align: right;">Порт API</td>
+<td>TCP/UDP</td>
+<td><strong>Импорт документов из МДМ через защищённый
+VPN-туннель</strong></td>
+<td><strong>Исходящий (через VPN)</strong></td>
+</tr>
+<tr class="even">
+<td>Администраторы</td>
+<td>Все серверы</td>
+<td style="text-align: right;">22</td>
+<td>TCP</td>
+<td>Администрирование по SSH</td>
+<td>Входящий</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Критические правила для ML-сервера
+<code>192.168.120.219</code>:</strong></p>
+<ul>
+<li><strong>Входящие соединения:</strong> только 22 (SSH для
+администрирования, со строгими ограничениями по IP);</li>
+<li><strong>Исходящие соединения:</strong> к Backend API, RabbitMQ,
+файловой системе и внешним источникам моделей (при необходимости);</li>
+<li><strong>Запрет:</strong> нет входящих портов для пользовательского
+или прямого доступа;</li>
+<li><strong>Изоляция:</strong> ML-сервер не должен быть доступен для
+внешних подключений напрямую.</li>
+</ul>
+<h3 id="96-правила-доступа-в-интернет">9.6. Правила доступа в
+Интернет</h3>
+<p>Исходящий доступ в Интернет предоставляется только при
+необходимости:</p>
+<ul>
+<li>обновления пакетов Debian/Astra/ALT;</li>
+<li>установки зависимостей Composer, NPM и Python;</li>
+<li>загрузки языковых моделей и компонентов ML;</li>
+<li>скачивания обновлений моделей машинного обучения;</li>
+<li><strong>обращения Backend к внешнему API МДМ через VPN-туннель (если
+API размещен вне корпоративной сети);</strong></li>
+<li>скачивания NVIDIA CUDA Toolkit и библиотек (для ML-серверов).</li>
+</ul>
+<p>Входящие соединения из Интернета к PostgreSQL, RabbitMQ и ML должны
+быть запрещены. Пользовательский доступ к Frontend ограничивается
+согласованными сетевыми зонами.</p>
+<h3 id="97-влияние-на-существующую-инфраструктуру">9.7. Влияние на
+существующую инфраструктуру</h3>
+<p>Развертывание Системы требует:</p>
+<ul>
+<li>выделения четырех серверов с адресами <code>192.168.120.219</code>,
+<code>192.168.120.220</code>, <code>192.168.120.221</code> и
+<code>192.168.120.222</code>;</li>
+<li>настройки сетевого взаимодействия между ними;</li>
+<li>регистрации DNS-записей;</li>
+<li><strong>установки и настройки VPN-туннеля для соединения Backend с
+API МДМ;</strong></li>
+<li>предоставления доступа Backend к API МДМ через VPN;</li>
+<li>правильной настройки прав доступа к общей файловой системе;</li>
+<li><strong>установки GPU (NVIDIA A100 или V100) на
+ML-сервер;</strong></li>
+<li>установки NVIDIA CUDA Toolkit и cuDNN на ML-сервер;</li>
+<li>установки и настройки Docker Engine (при развертывании через
+Docker).</li>
+</ul>
+<p><strong>Критические требования:</strong></p>
+<ol type="1">
+<li>ML-сервер должен быть изолирован сетевым экраном таким образом,
+чтобы не иметь входящих портов, доступных для внешних подключений.</li>
+<li>VPN-туннель должен быть установлен и протестирован
+<strong>перед</strong> началом импорта документов.</li>
+<li>GPU должна быть установлена и протестирована перед запуском
+ML-сервера.</li>
+</ol>
+<p>Изменение существующей инфраструктуры ограничивается созданием
+сетевых правил, DNS-записей, учетных записей, правил мониторинга и
+настройкой VPN.</p>
+<p><strong>Перед промышленным вводом необходимо выполнить функциональное
+тестирование:</strong></p>
+<ul>
+<li>импорта документов из МДМ через VPN;</li>
+<li>получения ML задач из RabbitMQ;</li>
+<li>обработки документов ML-компонентом с использованием GPU;</li>
+<li>сохранения результатов в хранилище;</li>
+<li>корректности работы всех компонентов в целом;</li>
+<li>стабильности VPN-соединения при длительной работе.</li>
+</ul>
+<hr />
+<p><strong>Документ разработан:</strong> ____________________
+<strong>Дата:</strong> _____________</p>
+<p><strong>Согласовано:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Роль</th>
+<th>ФИО</th>
+<th>Подпись</th>
+<th>Дата</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Руководитель проекта</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор инфраструктуры</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Администратор сети</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор информационной безопасности</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Администратор БД</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Администратор VPN/МДМ</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Владелец системы МДМ</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

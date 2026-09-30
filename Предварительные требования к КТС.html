@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tmp.gsk0IslYWa</title>
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+background-color: #1a1a1a;
+border: none;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+<style>
+/* Разрыв страницы */
+.pagebreak {
+    break-after: page;
+    page-break-after: always;
+}
+
+/* Таблицы */
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: auto;
+}
+
+th,
+td {
+    border: 1px solid #888;
+    padding: 6px 10px;
+    vertical-align: top;
+}
+
+th {
+    font-weight: bold;
+}
+
+/* Изображения */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* При печати не разрывать строку таблицы */
+tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+</style>
+
+</head>
+<body>
+<p>ФГБУ Институт стандартизации, Москва, 2026</p>
+<h1 id="предварительные-требования-к-комплексной-технической-системе-цифровой-полигон">Предварительные
+требования к комплексной технической системе «Цифровой полигон»</h1>
+<h2 id="введение">Введение</h2>
+<p>Настоящий документ описывает минимальные и рекомендуемые требования к
+вычислительной инфраструктуре для развертывания программного комплекса
+«Цифровой полигон» — системы для работы с документами ГОСТ, включающей
+компоненты Backend, Frontend, базу данных PostgreSQL, сервис машинного
+обучения и брокер сообщений RabbitMQ.</p>
+<p><strong>Важно:</strong> Связь с внешней системой МДМ (Master Data
+Management) для импорта документов ГОСТ осуществляется
+<strong>исключительно через защищенный VPN-канал</strong> с применением
+шифрования и аутентификации.</p>
+<hr />
+<h2 id="требования-к-операционной-системе-и-развертыванию">Требования к
+операционной системе и развертыванию</h2>
+<h3 id="поддерживаемые-операционные-системы">Поддерживаемые операционные
+системы</h3>
+<p>Система может быть развернута на следующих операционных системах:</p>
+<p><strong>Российские защищённые ОС (рекомендуется для государственных
+учреждений):</strong></p>
+<ul>
+<li><strong>Astra Linux SE</strong> (Special Edition) — с
+соответствующей лицензией для серверного использования</li>
+<li><strong>ALT Linux Server</strong> — с соответствующей лицензией для
+серверного использования</li>
+</ul>
+<p><strong>Открытые ОС:</strong></p>
+<ul>
+<li><strong>Debian 11</strong> и выше</li>
+<li><strong>Ubuntu 20.04 LTS</strong> и выше (при необходимости)</li>
+</ul>
+<h3 id="варианты-развертывания">Варианты развертывания</h3>
+<p><strong>Вариант 1: Развертывание через Docker
+(рекомендуется)</strong></p>
+<ul>
+<li>Docker Engine 20.10+</li>
+<li>Docker Compose 2.0+</li>
+<li>Все компоненты развертываются в контейнерах</li>
+<li>Требования к хост-ОС: минимальны (ядро Linux 4.8+)</li>
+<li>Поддерживаемые на всех рекомендуемых ОС</li>
+</ul>
+<p><strong>Вариант 2: Развертывание без Docker (native)</strong></p>
+<ul>
+<li>Требует установки всех компонентов непосредственно в ОС</li>
+<li>Специфичные требования к ПО для каждого компонента</li>
+<li>Более сложная конфигурация и поддержка</li>
+</ul>
+<hr />
+<h2 id="требования-к-отдельным-компонентам-системы">Требования к
+отдельным компонентам системы</h2>
+<h3 id="для-сервера-backend-192168120220">Для сервера Backend
+(<code>192.168.120.220</code>)</h3>
+<p>Сервер реализует бизнес-логику, REST API, управление очередями
+RabbitMQ, хранилище документов и взаимодействие с внешним API МДМ.</p>
+<p><strong>Минимальные требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 16 vCPU</li>
+<li><strong>Память (RAM):</strong> 32 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>80 Gb SSD для ОС и приложения</li>
+<li>200+ Gb для хранилища документов (рекомендуется SSD или быстрый
+NAS)</li>
+</ul></li>
+<li><strong>Локальная сеть:</strong> 1 Гб/с (требуется для RabbitMQ и
+доступа ML к хранилищу)</li>
+<li><strong>Сетевая связь:</strong> VPN-туннель к API МДМ (шифрованное
+соединение)</li>
+</ul>
+<p><strong>Рекомендуемые требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 32 vCPU</li>
+<li><strong>Память (RAM):</strong> 64 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>160 Gb SSD для ОС и приложения</li>
+<li>500+ Gb для хранилища документов</li>
+</ul></li>
+</ul>
+<p><strong>Операционная система:</strong></p>
+<ul>
+<li>Astra Linux SE (с лицензией серверного использования)</li>
+<li>ALT Linux Server (с лицензией серверного использования)</li>
+<li>Debian 11+</li>
+<li>Поддержка Docker / Docker Compose</li>
+</ul>
+<p><strong>Программное обеспечение:</strong></p>
+<ul>
+<li>При развертывании через Docker: Docker Engine, Docker Compose</li>
+<li>При развертывании без Docker:
+<ul>
+<li>Nginx (веб-сервер и прокси)</li>
+<li>PHP 8.2 с расширениями (FPM, PostgreSQL, XML, ZIP, AMQP, intl,
+ctype, iconv, PCRE, session, SimpleXML, Tokenizer)</li>
+<li>Composer (менеджер зависимостей PHP)</li>
+<li>RabbitMQ (брокер сообщений)</li>
+<li>Apache FOP (генерация PDF)</li>
+<li>JEuclid (обработка математических формул)</li>
+<li>NFS Server (для общей файловой системы хранилища)</li>
+</ul></li>
+</ul>
+<p><strong>Открытые порты:</strong></p>
+<ul>
+<li>80 (HTTP) — для Backend API</li>
+<li>443 (HTTPS) — для защищённого Backend API (опционально)</li>
+<li>5672 (AMQP) — для RabbitMQ (только для локальной сети)</li>
+<li>15672 (Management) — для администрирования RabbitMQ (только для
+администраторов)</li>
+<li>2049 (NFS) — для доступа к хранилищу документов (только для ML на
+<code>192.168.120.219</code>)</li>
+</ul>
+<p><strong>Дополнительные требования:</strong></p>
+<ul>
+<li>Размер хранилища документов должен рассчитываться на основе объёма
+ГОСТ-документов и истории обработки (не менее 200 Gb)</li>
+<li>Резервное копирование данных с периодичностью не менее 1 раза в
+сутки</li>
+<li>Мониторинг свободного место и нагрузки на хранилище</li>
+</ul>
+<hr />
+<h3 id="для-сервера-машинного-обучения-ml-192168120219">Для сервера
+машинного обучения (ML) (<code>192.168.120.219</code>)</h3>
+<p>Сервер выполняет распознавание текста (OCR), анализ содержимого
+документов и применение моделей машинного обучения.</p>
+<p><strong>Минимальные требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 32 vCPU</li>
+<li><strong>Память (RAM):</strong> 48 Gb</li>
+<li><strong>GPU (видеокарты):</strong> 1 x NVIDIA GPU с поддержкой CUDA
+<ul>
+<li>Минимум: NVIDIA V100 или RTX A2000</li>
+<li>Рекомендуется: NVIDIA A100 (2 шт.) или RTX 6000</li>
+<li><strong>Требуется драйвер NVIDIA 470+ и CUDA Toolkit
+11.8+</strong></li>
+</ul></li>
+<li><strong>Диск:</strong>
+<ul>
+<li>100 Gb SSD для ОС, приложения и виртуального окружения Python</li>
+<li>Доступ к хранилищу Backend на <code>192.168.120.220</code> через
+NFS</li>
+</ul></li>
+<li><strong>Локальная сеть:</strong> 1 Гб/с (требуется для обращения к
+RabbitMQ и Backend API)</li>
+<li><strong>Сетевые соединения:</strong> Только исходящие (к RabbitMQ,
+Backend API и хранилищу). <strong>Входящие порты
+запрещены</strong>.</li>
+</ul>
+<p><strong>Рекомендуемые требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 64 vCPU</li>
+<li><strong>Память (RAM):</strong> 96 Gb</li>
+<li><strong>GPU (видеокарты):</strong> 2-4 x NVIDIA A100 или
+эквивалент</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>200 Gb SSD для ОС и приложения</li>
+<li>Доступ к большому хранилищу Backend</li>
+</ul></li>
+</ul>
+<p><strong>Операционная система:</strong></p>
+<ul>
+<li>Astra Linux SE (с лицензией серверного использования и поддержкой
+CUDA)</li>
+<li>ALT Linux Server (с лицензией серверного использования и поддержкой
+CUDA)</li>
+<li>Debian 11+</li>
+<li>Поддержка Docker / Docker Compose</li>
+</ul>
+<p><strong>Программное обеспечение:</strong></p>
+<ul>
+<li>При развертывании через Docker: Docker Engine, Docker Compose,
+NVIDIA Docker Runtime</li>
+<li>При развертывании без Docker:
+<ul>
+<li>Python 3.9+ с pip и venv</li>
+<li>NVIDIA CUDA Toolkit 11.8+</li>
+<li>NVIDIA cuDNN 8.6+</li>
+<li>TensorFlow 2.13+ (для GPU)</li>
+<li>EasyOCR (оптическое распознавание текста)</li>
+<li>Tesseract OCR 4.0+</li>
+<li>Pillow (обработка изображений)</li>
+<li>Pandas (анализ данных)</li>
+<li>PyEnchant (проверка орфографии)</li>
+<li>Pymorphy3 (морфологический анализ русского языка)</li>
+<li>ONNX Runtime (для выполнения моделей машинного обучения)</li>
+<li>Pika (взаимодействие с RabbitMQ)</li>
+<li>Flask / Waitress (локальный API сервис)</li>
+<li>PM2 (менеджер процессов)</li>
+<li>NFS Client (для подключения к хранилищу на Backend)</li>
+</ul></li>
+</ul>
+<p><strong>Открытые порты:</strong></p>
+<ul>
+<li><strong>Входящие:</strong> только 22 (SSH для администрирования, со
+строгими ограничениями по IP)</li>
+<li><strong>Исходящие:</strong>
+<ul>
+<li>80, 443 (HTTP/HTTPS к Backend API на
+<code>192.168.120.220</code>)</li>
+<li>5672 (AMQP к RabbitMQ на <code>192.168.120.220</code>)</li>
+<li>2049 (NFS к хранилищу на <code>192.168.120.220</code>)</li>
+</ul></li>
+</ul>
+<p><strong>Дополнительные требования:</strong></p>
+<ul>
+<li><strong>Обязательно:</strong> Изоляция на уровне межсетевого экрана
+— ML-сервер не должен быть доступен извне</li>
+<li>Мониторинг загрузки GPU и CPU</li>
+<li>Мониторинг температуры GPU</li>
+<li>Наличие системы охлаждения с пропускной способностью не менее 3-5
+кВт</li>
+<li>Источник бесперебойного питания (ИБП) рекомендуется</li>
+</ul>
+<hr />
+<h3 id="для-сервера-базы-данных-субд-192168120221">Для сервера базы
+данных (СУБД) (<code>192.168.120.221</code>)</h3>
+<p>Сервер хранит данные приложения, документов и результаты
+обработки.</p>
+<p><strong>Минимальные требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 16 vCPU</li>
+<li><strong>Память (RAM):</strong> 32 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>100 Gb SSD для ОС и бинарных файлов PostgreSQL</li>
+<li>160+ Gb SSD для данных БД</li>
+<li>Рекомендуется использовать отдельные диски для WAL (Write-Ahead
+Log)</li>
+</ul></li>
+<li><strong>Локальная сеть:</strong> 1 Гб/с</li>
+<li><strong>Интернет:</strong> опционально (только для обновлений)</li>
+</ul>
+<p><strong>Рекомендуемые требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 32 vCPU</li>
+<li><strong>Память (RAM):</strong> 64 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>160 Gb SSD для ОС и бинарных файлов</li>
+<li>240+ Gb SSD для данных БД (рекомендуется NVMe)</li>
+<li>Отдельный диск для WAL (100+ Gb SSD)</li>
+<li>Резервный диск для снимков резервных копий</li>
+</ul></li>
+</ul>
+<p><strong>Операционная система:</strong></p>
+<ul>
+<li>Astra Linux SE (с лицензией серверного использования)</li>
+<li>ALT Linux Server (с лицензией серверного использования)</li>
+<li>Debian 11+</li>
+<li>Поддержка Docker / Docker Compose</li>
+</ul>
+<p><strong>Программное обеспечение:</strong></p>
+<ul>
+<li>При развертывании через Docker: Docker Engine, Docker Compose</li>
+<li>При развертывании без Docker:
+<ul>
+<li>PostgreSQL 15+ (или PostgreSQL Pro 15+ для усиленной
+безопасности)</li>
+<li>Инструменты резервного копирования (pg_dump, pgBackRest)</li>
+<li>Мониторинг (pg_stat_statements, pgAdmin)</li>
+</ul></li>
+</ul>
+<p><strong>Открытые порты:</strong></p>
+<ul>
+<li>5432 (PostgreSQL) — только для Backend на
+<code>192.168.120.220</code></li>
+</ul>
+<p><strong>Дополнительные требования:</strong></p>
+<ul>
+<li>Резервное копирование с периодичностью не менее 1 раза в день</li>
+<li>Репликация на резервный сервер (рекомендуется)</li>
+<li>Мониторинг размера БД и скорости роста</li>
+<li>Механизм очистки старых логов (VACUUM)</li>
+</ul>
+<hr />
+<h3 id="для-сервера-frontend-192168120222">Для сервера Frontend
+(<code>192.168.120.222</code>)</h3>
+<p>Сервер предоставляет веб-интерфейс для работы с документами.</p>
+<p><strong>Минимальные требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 8 vCPU</li>
+<li><strong>Память (RAM):</strong> 16 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>80 Gb SSD для ОС и приложения</li>
+</ul></li>
+<li><strong>Локальная сеть:</strong> 100 Мб/с (достаточно)</li>
+<li><strong>Интернет:</strong> опционально</li>
+</ul>
+<p><strong>Рекомендуемые требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 16 vCPU</li>
+<li><strong>Память (RAM):</strong> 32 Gb</li>
+<li><strong>Диск:</strong>
+<ul>
+<li>160 Gb SSD для ОС и приложения</li>
+<li>Дополнительное место для кэша браузерных данных</li>
+</ul></li>
+</ul>
+<p><strong>Операционная система:</strong></p>
+<ul>
+<li>Astra Linux SE (с лицензией серверного использования)</li>
+<li>ALT Linux Server (с лицензией серверного использования)</li>
+<li>Debian 11+</li>
+<li>Поддержка Docker / Docker Compose</li>
+</ul>
+<p><strong>Программное обеспечение:</strong></p>
+<ul>
+<li>При развертывании через Docker: Docker Engine, Docker Compose</li>
+<li>При развертывании без Docker:
+<ul>
+<li>Node.js 18 LTS+</li>
+<li>NPM (менеджер пакетов Node.js)</li>
+<li>Nuxt.js 3.x (фреймворк Vue.js)</li>
+<li>Nginx (веб-сервер для статических файлов и прокси)</li>
+</ul></li>
+</ul>
+<p><strong>Открытые порты:</strong></p>
+<ul>
+<li>80 (HTTP) — пользовательский доступ</li>
+<li>443 (HTTPS) — защищённый пользовательский доступ
+(рекомендуется)</li>
+</ul>
+<hr />
+<h3 id="для-рабочих-мест-сотрудников-клиентская-часть">Для рабочих мест
+сотрудников (Клиентская часть)</h3>
+<p>Рабочие места подключаются к Frontend через браузер.</p>
+<p><strong>Минимальные требования:</strong></p>
+<ul>
+<li><strong>Процессор:</strong> 2 vCPU (4 vCPU рекомендуется)</li>
+<li><strong>Память (RAM):</strong> 4 Gb (8 Gb рекомендуется)</li>
+<li><strong>Диск:</strong> 10 Gb свободного места</li>
+<li><strong>Локальная сеть:</strong> 100 Мб/с</li>
+<li><strong>Интернет:</strong> опционально (для обновлений
+браузера)</li>
+</ul>
+<p><strong>Операционная система:</strong></p>
+<ul>
+<li>Windows 10/11</li>
+<li>macOS 10.15+</li>
+<li>Linux (любой дистрибутив с поддержкой современных браузеров)</li>
+</ul>
+<p><strong>Браузер (требуется один из перечисленных):</strong></p>
+<ul>
+<li>Яндекс.Браузер версия 20.0+</li>
+<li>Mozilla Firefox версия 107+</li>
+<li>Opera версия 93+</li>
+<li>Google Chrome версия 116+</li>
+<li>Microsoft Edge версия 116+ (Windows)</li>
+</ul>
+<hr />
+<h2 id="сеевая-архитектура-и-требования">Сеевая архитектура и
+требования</h2>
+<h3 id="сетевые-соединения-между-компонентами-системы">Сетевые
+соединения между компонентами системы</h3>
+<pre><code>Пользователи (Internet/LAN)
+    ↓ HTTPS (80, 443)
+Frontend (192.168.120.222)
+    ↓ HTTP (80, 443)
+Backend API (192.168.120.220)
+    ├─ PostgreSQL (5432) → СУБД (192.168.120.221)
+    ├─ RabbitMQ (5672, локально)
+    ├─ Хранилище NFS (2049)
+    └─ API МДМ (VPN-туннель, шифрованное)
+
+ML (192.168.120.219) — только исходящие
+    ├─ Backend API (HTTP, 80/443) ← исходящее
+    ├─ RabbitMQ (5672) ← исходящее
+    └─ Хранилище (NFS, 2049) ← исходящее</code></pre>
+<h3 id="требования-к-vpn-для-мдм">Требования к VPN для МДМ</h3>
+<ul>
+<li><strong>Тип соединения:</strong> Site-to-Site VPN или Client
+VPN</li>
+<li><strong>Шифрование:</strong> AES-256 или эквивалент</li>
+<li><strong>Аутентификация:</strong> Сертификаты X.509 или PSK
+(Pre-Shared Key) с сильным паролем</li>
+<li><strong>Пропускная способность:</strong> минимум 10 Мб/с для
+стабильного импорта документов</li>
+<li><strong>Надёжность:</strong> гарантированное время восстановления
+соединения не более 5 минут</li>
+<li><strong>Мониторинг:</strong> логирование всех попыток подключения и
+передачи данных</li>
+</ul>
+<h3 id="требования-к-межсетевому-экрану-firewall">Требования к
+межсетевому экрану (Firewall)</h3>
+<p><strong>Входящие соединения:</strong></p>
+<ul>
+<li>80/443 на Frontend (для пользователей)</li>
+<li>22 на всех серверах (для администрирования, только с доверенных
+IP)</li>
+</ul>
+<p><strong>Исходящие соединения:</strong></p>
+<ul>
+<li>Backend → PostgreSQL (5432)</li>
+<li>Backend → RabbitMQ (локально, внутренний)</li>
+<li>Backend → API МДМ (VPN-туннель)</li>
+<li>ML → Backend API (80/443)</li>
+<li>ML → RabbitMQ (5672)</li>
+<li>ML → Хранилище NFS (2049)</li>
+<li>Все серверы → интернет (для обновлений пакетов)</li>
+</ul>
+<p><strong>Запрещённые соединения:</strong></p>
+<ul>
+<li>Любые входящие соединения к ML</li>
+<li>Прямые соединения к PostgreSQL извне Backend</li>
+<li>Прямые соединения к RabbitMQ Management (только для
+администраторов)</li>
+</ul>
+<hr />
+<h2 id="обобщённая-таблица-требований">Обобщённая таблица
+требований</h2>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Компонент</strong></th>
+<th><strong>Процессор (мин/рек)</strong></th>
+<th><strong>Память (мин/рек)</strong></th>
+<th><strong>Диск (мин/рек)</strong></th>
+<th><strong>Специальные требования</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Backend</strong></td>
+<td>16/32 vCPU</td>
+<td>32/64 Gb</td>
+<td>80/160 SSD + 200/500 хранилище</td>
+<td>NFS Server, RabbitMQ, Nginx, PHP 8.2, VPN к МДМ</td>
+</tr>
+<tr class="even">
+<td><strong>ML</strong></td>
+<td>32/64 vCPU</td>
+<td>48/96 Gb</td>
+<td>100/200 SSD</td>
+<td><strong>GPU: 1-4 x NVIDIA A100+</strong>, Python 3.9+, TensorFlow,
+CUDA 11.8+, изоляция firewallом</td>
+</tr>
+<tr class="odd">
+<td><strong>PostgreSQL</strong></td>
+<td>16/32 vCPU</td>
+<td>32/64 Gb</td>
+<td>100/160 SSD данные + 60/100 SSD WAL</td>
+<td>SSD обязателен, резервные копии, репликация (рекомендуется)</td>
+</tr>
+<tr class="even">
+<td><strong>Frontend</strong></td>
+<td>8/16 vCPU</td>
+<td>16/32 Gb</td>
+<td>80/160 SSD</td>
+<td>Node.js 18+, Nuxt.js 3.x, Nginx</td>
+</tr>
+<tr class="odd">
+<td><strong>Рабочие места</strong></td>
+<td>2/4 vCPU</td>
+<td>4/8 Gb</td>
+<td>10 Gb</td>
+<td>Браузер (Firefox, Chrome, Яндекс, Opera) версии 20+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="требования-к-отказоустойчивости-и-надёжности">Требования к
+отказоустойчивости и надёжности</h2>
+<ul>
+<li><strong>Резервное копирование:</strong> ежедневное для PostgreSQL и
+хранилища документов</li>
+<li><strong>Репликация БД:</strong> рекомендуется настроить репликацию
+на резервный сервер</li>
+<li><strong>ИБП (UPS):</strong> обязателен для Backend, PostgreSQL и
+ML</li>
+<li><strong>Мониторинг:</strong> централизованный мониторинг всех
+компонентов (Prometheus, Grafana, Zabbix)</li>
+<li><strong>Логирование:</strong> централизованное логирование в SIEM
+(ELK Stack или аналог)</li>
+</ul>
+<hr />
+<h2 id="варианты-развертывания-1">Варианты развертывания</h2>
+<h3 id="вариант-1-виртуальное-окружение-рекомендуется">Вариант 1:
+Виртуальное окружение (рекомендуется)</h3>
+<p>Все четыре компонента развертываются как виртуальные машины на
+гипервизоре (KVM, VMware, Hyper-V).</p>
+<p><strong>Преимущества:</strong></p>
+<ul>
+<li>Простота управления и расширения</li>
+<li>Изоляция компонентов</li>
+<li>Возможность быстрого резервного копирования</li>
+</ul>
+<p><strong>Недостатки:</strong></p>
+<ul>
+<li>Небольшие накладные расходы на гипервизор</li>
+<li>Требуется опыт администрирования виртуализации</li>
+</ul>
+<h3 id="вариант-2-docker-compose-рекомендуется-для-быстрого-развертывания">Вариант
+2: Docker Compose (рекомендуется для быстрого развертывания)</h3>
+<p>Все компоненты развертываются в контейнерах на одной или нескольких
+физических машинах.</p>
+<p><strong>Преимущества:</strong></p>
+<ul>
+<li>Быстрое развертывание (часы вместо дней)</li>
+<li>Простая масштабируемость</li>
+<li>Единообразное окружение на разных ОС</li>
+</ul>
+<p><strong>Недостатки:</strong></p>
+<ul>
+<li>Требует опыта работы с Docker</li>
+<li>Сложнее отладка в случае проблем</li>
+</ul>
+<h3 id="вариант-3-гибридное-развертывание">Вариант 3: Гибридное
+развертывание</h3>
+<p>Backend, Frontend и PostgreSQL на виртуальных машинах, ML в
+контейнере Docker на отдельной физической машине с GPU.</p>
+<p><strong>Преимущества:</strong></p>
+<ul>
+<li>Гибкость в управлении вычислительными ресурсами</li>
+<li>Оптимизация использования GPU</li>
+</ul>
+<hr />
+<h2 id="безопасность">Безопасность</h2>
+<ul>
+<li>Все компоненты должны быть развернуты в защищённой сети
+(корпоративный LAN)</li>
+<li>Использование HTTPS/TLS для всех внешних соединений (на Frontend и
+Backend API)</li>
+<li>Регулярное обновление всех пакетов и зависимостей</li>
+<li>Двухфакторная аутентификация (2FA) для доступа администраторов</li>
+<li>Экранирование всех чувствительных данных (пароли, ключи API) в
+переменных окружения</li>
+<li>Использование VPN для подключения к внешней системе МДМ
+(обязательно)</li>
+<li>Мониторинг и логирование всех операций импорта документов</li>
+</ul>
+<hr />
+<h2 id="итоговые-рекомендации">Итоговые рекомендации</h2>
+<ol type="1">
+<li><strong>Используйте Docker для быстрого запуска:</strong>
+рекомендуется для тестирования и пилотирования</li>
+<li><strong>Используйте Debian 11+ или Astra Linux для
+production:</strong> проверенные стабильность и поддержка</li>
+<li><strong>Инвестируйте в GPU для ML:</strong> это критично для
+производительности OCR и моделей машинного обучения</li>
+<li><strong>Настройте VPN для МДМ заранее:</strong> это обязательное
+условие для импорта документов</li>
+<li><strong>Мониторьте нагрузку на все компоненты:</strong> используйте
+Prometheus, Grafana или Zabbix</li>
+<li><strong>Регулярно делайте резервные копии БД:</strong> минимум
+ежедневно</li>
+<li><strong>Изолируйте ML-сервер на уровне firewall:</strong> это
+критично для безопасности</li>
+</ol>
+</body>
+</html>
