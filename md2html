@@ -75,22 +75,37 @@ src = Path(sys.argv[1])
 dst = Path(sys.argv[2])
 text = src.read_text(encoding='utf-8')
 
+PAGEBREAK_HTML = '<p class="pagebreak"><br clear="all" style="mso-special-character:line-break;page-break-before:always"></p>'
+
 # 1. PAGEBREAK: отдельная строка комментария
-text = re.sub(r'(?m)^\s*<!--\s*PAGEBREAK\s*-->\s*$', '<div class="pagebreak"></div>', text)
+text = re.sub(r'(?m)^[ \t]*<!--\s*PAGEBREAK\s*-->[ \t]*$', PAGEBREAK_HTML, text)
 
 # 2. Разрывы страниц перед ключевыми заголовками.
 # Используем только для заголовков уровня 2: Содержание, Введение
 # и заголовков уровня 1: # ...
+# Важно: HTML-блок (raw HTML) должен быть отделён пустыми строками от
+# соседних строк, иначе pandoc "проглотит" следующий markdown-заголовок
+# как часть raw HTML блока, и он не будет распознан как заголовок.
 lines = text.splitlines()
 out = []
-for i, line in enumerate(lines):
+for line in lines:
     stripped = line.strip()
-    if stripped.startswith('## Содержание') or stripped.startswith('## Введение'):
-        if not out or out[-1] != '<div class="pagebreak"></div>':
-            out.append('<div class="pagebreak"></div>')
-    elif re.match(r'^#\s+.+', stripped):
-        if not out or out[-1] != '<div class="pagebreak"></div>':
-            out.append('<div class="pagebreak"></div>')
+    needs_break = (
+        stripped.startswith('## Содержание')
+        or stripped.startswith('## Введение')
+        or re.match(r'^#\s+.+', stripped)
+    )
+    if needs_break:
+        # Ищем последнюю непустую строку среди уже накопленных.
+        j = len(out) - 1
+        while j >= 0 and out[j].strip() == '':
+            j -= 1
+        already_has_break = j >= 0 and out[j] == PAGEBREAK_HTML
+        if not already_has_break:
+            if out and out[-1].strip() != '':
+                out.append('')
+            out.append(PAGEBREAK_HTML)
+            out.append('')
     out.append(line)
 
 text = '\n'.join(out) + '\n'
@@ -130,14 +145,15 @@ html = filename.read_text(encoding="utf-8")
 css = r"""
 <style>
 /* Разрыв страницы */
-.pagebreak {
+p.pagebreak {
     break-after: page;
     page-break-after: always;
     clear: both;
-    display: block;
     margin: 0;
     padding: 0;
     height: 0;
+    line-height: 0;
+    font-size: 0;
 }
 
 /* Таблицы */
