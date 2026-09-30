@@ -1,0 +1,150 @@
+#!/bin/bash
+
+# Markdown -> HTML
+#
+# Использование:
+#   md2html файл.md
+#
+# Поддерживает:
+#   - Markdown-таблицы
+#   - изображения из *_media/
+#   - <!-- PAGEBREAK --> как разрыв страницы
+#
+# Требуется:
+#   pandoc
+
+if [ $# -ne 1 ]; then
+    echo "Использование: $0 файл.md"
+    exit 1
+fi
+
+INPUT="$1"
+
+# Проверяем существование файла
+if [ ! -f "$INPUT" ]; then
+    echo "Ошибка: файл не найден: $INPUT"
+    exit 1
+fi
+
+# Проверяем расширение
+if [[ "${INPUT,,}" != *.md ]]; then
+    echo "Ошибка: входной файл должен иметь расширение .md"
+    exit 1
+fi
+
+# Проверяем наличие pandoc
+if ! command -v pandoc >/dev/null 2>&1; then
+    echo "Ошибка: pandoc не установлен."
+    echo "Установите: sudo apt install pandoc"
+    exit 1
+fi
+
+# Имя без расширения
+BASE="${INPUT%.*}"
+
+# Выходной HTML
+OUTPUT="${BASE}.html"
+
+# Временный Markdown
+TMP=$(mktemp --suffix=.md)
+
+# Удаляем временный файл при завершении
+trap 'rm -f "$TMP"' EXIT
+
+echo "Входной файл : $INPUT"
+echo "Выходной файл: $OUTPUT"
+
+# Заменяем:
+#
+#   <!-- PAGEBREAK -->
+#
+# на HTML с разрывом страницы.
+#
+# Важно:
+# PAGEBREAK должен находиться отдельной строкой.
+sed \
+    's|^[[:space:]]*<!--[[:space:]]*PAGEBREAK[[:space:]]*-->[[:space:]]*$|<div class="pagebreak"></div>|' \
+    "$INPUT" > "$TMP"
+
+# Конвертация Markdown -> HTML
+pandoc "$TMP" \
+    -f gfm \
+    -t html \
+    --standalone \
+    --embed-resources \
+    --metadata title="" \
+    -o "$OUTPUT"
+
+if [ $? -ne 0 ]; then
+    echo "Ошибка конвертации."
+    exit 1
+fi
+
+# Добавляем CSS перед </head>
+#
+# CSS нужен для:
+#   - разрыва страницы
+#   - нормального отображения таблиц
+#   - изображений
+#
+python3 - "$OUTPUT" <<'PY'
+from pathlib import Path
+import sys
+
+filename = Path(sys.argv[1])
+html = filename.read_text(encoding="utf-8")
+
+css = r"""
+<style>
+/* Разрыв страницы */
+.pagebreak {
+    break-after: page;
+    page-break-after: always;
+}
+
+/* Таблицы */
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: auto;
+}
+
+th,
+td {
+    border: 1px solid #888;
+    padding: 6px 10px;
+    vertical-align: top;
+}
+
+th {
+    font-weight: bold;
+}
+
+/* Изображения */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* При печати не разрывать строку таблицы */
+tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+</style>
+"""
+
+html = html.replace("</head>", css + "\n</head>", 1)
+
+filename.write_text(html, encoding="utf-8")
+PY
+
+if [ $? -ne 0 ]; then
+    echo "Ошибка добавления CSS."
+    exit 1
+fi
+
+echo "Готово: $OUTPUT"
+
+# Открываем HTML в браузере
+xdg-open "$OUTPUT" >/dev/null 2>&1 &
